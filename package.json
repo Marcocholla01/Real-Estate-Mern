@@ -1,0 +1,11 @@
+{
+  "name": "realestatemern",
+  "version": "1.0.0",
+  "description": "A Real Esate mern project",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PAUL OUMA OCHOLLA (Marcocholla01)",
+  "license": "ISC"
+}
