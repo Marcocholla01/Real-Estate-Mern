@@ -1,18 +1,24 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import userRouter from "./routes/userRoute.js";
 
-dotenv.config()
+dotenv.config();
 
-mongoose.connect(process.env.MONGO_DB).then(()=>{
-    console.log("DB Connnection Established Sucessfully")
-}).catch((err)=>{
-    console.log(err.message)
-})
+mongoose
+  .connect(process.env.MONGO_DB)
+  .then(() => {
+    console.log("DB Connnection Established Sucessfully");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
-const port = 3000 || process.env.PORT;
-const app =  express();
+const port = process.env.PORT;
+const app = express();
 
-app.listen(port,()=>{
-    console.log('Server is running on port ' + port)
-})
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+app.use(`/api/user`, userRouter);
