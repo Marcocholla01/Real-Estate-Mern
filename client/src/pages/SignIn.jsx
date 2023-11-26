@@ -7,6 +7,9 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import GoogleOauth from "../components/Oauth/GoogleOauth";
+import FacebookOauth from "../components/Oauth/FacebookOauth";
+import AppleOauth from "../components/Oauth/AppleOauth";
 
 function SignIn() {
   const [formData, setFormData] = useState({});
@@ -45,6 +48,7 @@ function SignIn() {
         <input
           type="email"
           placeholder="Email"
+          required
           className="border p-3 rounded-lg"
           id="email"
           onChange={handleChange}
@@ -52,6 +56,7 @@ function SignIn() {
         <input
           type="password"
           placeholder="password"
+          required
           className="border p-3 rounded-lg"
           id="password"
           onChange={handleChange}
@@ -61,7 +66,13 @@ function SignIn() {
           className="bg-green-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
         >
           {loading ? "Loading..." : "Sign In"}
-        </button>
+        </button> 
+        <GoogleOauth/>
+        <div className=" flex  justify-between">
+          <FacebookOauth />
+          <AppleOauth />
+        </div>
+        
       </form>
       <div className="flex gap-2 mt-5">
         <p>Dont have an account?</p>

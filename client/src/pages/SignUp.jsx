@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../Url";
+import GoogleOauth from "../components/Oauth/GoogleOauth";
+import FacebookOauth from "../components/Oauth/FacebookOauth";
+import AppleOauth from "../components/Oauth/AppleOauth";
 
 function SignUp() {
   const [formData, setFormData] = useState({});
@@ -42,6 +45,7 @@ function SignUp() {
         <input
           type="text"
           placeholder="username"
+          required
           className="border p-3 rounded-lg"
           id="username"
           onChange={handleChange}
@@ -49,6 +53,7 @@ function SignUp() {
         <input
           type="email"
           placeholder="Email"
+          required
           className="border p-3 rounded-lg"
           id="email"
           onChange={handleChange}
@@ -56,6 +61,7 @@ function SignUp() {
         <input
           type="password"
           placeholder="password"
+          required
           className="border p-3 rounded-lg"
           id="password"
           onChange={handleChange}
@@ -66,6 +72,11 @@ function SignUp() {
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
+        <GoogleOauth />
+        <div className=" flex  justify-between">
+          <FacebookOauth />
+          <AppleOauth />
+        </div>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
